@@ -1,0 +1,22 @@
+body {
+  background-color: rgba(241, 238, 252, 0.932);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas:
+    "h h"
+    "n c";
+}
+
+.content {
+  background-color: burlywood;
+  grid-area: c;
+}
