@@ -8,7 +8,7 @@ import Settings from './components/Settings/Settings';
 import News from './components/News/News';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-const App=()=> {
+const App=(props)=> {
   return (
     <BrowserRouter>
     <div className="container">
@@ -16,9 +16,9 @@ const App=()=> {
         <Header/>
         <NavBar/>
         <div className="content">
-          <Route path='/profile' component={Profile}/>
+          <Route path='/profile' render={ () => <Profile state= {props.state.ProfilePage} dispatch={props.dispatch} /> }/>
           <Route path='/news' component={News}/>
-          <Route path='/messages' component={Messages}/>
+          <Route path='/messages' render={ () => <Messages state={props.state.dialogsPage} dispatch={props.dispatch} /> } />
           <Route path='/settings' component={Settings}/>
         </div>
       </div>

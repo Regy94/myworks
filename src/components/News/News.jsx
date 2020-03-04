@@ -5,6 +5,10 @@ const News = () => {
     return (
         <div>
             News
+            grg
+            ger
+            gr
+            eg
         </div>
     );
 }

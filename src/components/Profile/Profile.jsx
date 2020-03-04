@@ -2,10 +2,11 @@ import React from 'react';
 import c from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
 
-const Profile = ()=> {
+const Profile = (props)=> {
     return(
         <div className={c.profile}>
-            <MyPosts/>
+            <div className={c.profile__info}>This place will be my info</div>
+            <MyPosts state={props.state.posts} writtenPostText={props.state.writtenPostText} dispatch={props.dispatch}/>
         </div>
     );
 }

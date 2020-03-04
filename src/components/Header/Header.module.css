@@ -14,6 +14,8 @@
 
 .header__text {
   grid-area: ht;
+  padding: 0;
+  margin: 0;
 }
 
 .header__img {
