@@ -1,0 +1,19 @@
+/* .textarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.errorBorder{
+    border: 2px solid red;
+}
+
+.errorText {
+    color: red;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

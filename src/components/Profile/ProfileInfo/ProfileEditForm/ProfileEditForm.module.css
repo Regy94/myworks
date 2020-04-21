@@ -1,0 +1,19 @@
+.form{
+    grid-area: i;
+    margin-left: 40px;
+}
+
+.contacts {
+    display: flex;
+}
+
+.contacts__key {
+    margin-left: 10px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.form__error {
+    color: red;
+    font-weight: bold;
+}

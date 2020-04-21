@@ -10,7 +10,7 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 70px 3fr;
+  grid-template-rows: 70px minmax(60vh,3fr);
   grid-template-areas:
     "h h"
     "n c";
@@ -20,4 +20,11 @@ body {
   background-color: burlywood;
   grid-area: c;
   padding: 10px;
+}
+
+.block-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }

@@ -1,15 +1,22 @@
 import React from 'react';
-import c from './Messages.module.css';
-import Member from './components/Member.jsx'
-import NewMessage from './components/NewMessage'
+
+import style from './Messages.module.css';
+import Member from './Member/Member.jsx'
+import MessageForm from './MessageForm';
 
 const Messages = (props) => {
 
-    let dialogsArray = props.state.dialogs.map(({ name, text, date }) => <Member name={name} message={text} date={date} /> );
+    let dialogsArray = props.dialogs.map(({ name, text, date }) => <Member name={name} message={text} date={date} /> );
+
+    const onAddNewMessage = (data) => {
+        props.addNewMessage(data.message)
+    };
 
     return (
-        <div className={c.messages}>
-            <NewMessage dispatch={props.dispatch} writtenMessageText={props.state.writtenMessageText} />
+        <div className={style.messages} >
+            <div className={style.newMessage}>
+                <MessageForm onSubmit={onAddNewMessage} />
+            </div>
             {dialogsArray}
         </div>
     );

@@ -2,6 +2,9 @@
     background-color: antiquewhite;
     grid-area: h;
     padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
 .header__logo {
@@ -26,4 +29,10 @@
 .imgBlock {
   display: block;
   width: 100%;
+}
+
+.header__login {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }

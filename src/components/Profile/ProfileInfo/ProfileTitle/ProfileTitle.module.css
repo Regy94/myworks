@@ -1,0 +1,23 @@
+.title{
+    grid-area: t;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo {
+    width: 170px;
+    height: auto;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.photo__img {
+    width: 100%;
+}
+
+
+.title__name {
+    font-size: 19px;
+    font-weight: bold;
+}

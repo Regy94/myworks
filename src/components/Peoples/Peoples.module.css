@@ -1,0 +1,18 @@
+
+.peoples__arr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.peoples {
+    position: relative;
+    height: 100%;
+}
+
+.peoples__loader {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}

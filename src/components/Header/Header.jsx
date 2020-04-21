@@ -1,14 +1,23 @@
 import React from 'react';
-import c from './Header.module.css'
+import styles from './Header.module.css'
 
-const Header = () => {
+import logo from '../../assets/images/Logo.png'
+import { NavLink } from 'react-router-dom';
+
+const Header = (props) => {
     return (
-        <header className={c.header}>
-            <div className={c.header__logo}>
-                <div className={c.header__img}>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Oikya_Front_Logo.png/600px-Oikya_Front_Logo.png' className={c.imgBlock} alt=""/>
+        <header className={styles.header}>
+            <div className={styles.header__logo}>
+                <div className={styles.header__img}>
+                    <img src={logo} className={styles.imgBlock} alt=""/>
                 </div>
-                <h1 className={c.header__text}>MySite</h1>
+                <h1 className={styles.header__text}>MySite</h1>
+            </div>
+            <div>
+                {props.isAuth && <button className={styles.header__login} onClick={props.onLogOut} >Log Out</button>}
+            </div>
+            <div>
+                {props.isAuth?props.login:<NavLink className={styles.header__login} to={'/login'}>Login</NavLink>}
             </div>
         </header>
     );
