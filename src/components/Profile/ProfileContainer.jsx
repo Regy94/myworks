@@ -7,6 +7,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/hoc';
 import { compose } from 'redux';
 import { profileSelector, isLoadingSelector, statusSelector, isStatusLoadingSelector, errorUpdateProfileSelector, toggleProfileUpdateLoadingSelector } from '../../data/selectors/profile-selectors';
+import { userIdSelector } from '../../data/selectors/auth-selectors';
 
 class ProfileApiContainer extends React.Component {
 
@@ -38,6 +39,7 @@ class ProfileApiContainer extends React.Component {
             updateProfile={this.props.updateProfile}
             toggleProfileUpdateLoading={this.props.toggleProfileUpdateLoading}
             updateProfilePhoto={this.props.updateProfilePhoto}
+            userId={this.props.userId}
             />
     }
 }
@@ -50,7 +52,8 @@ const mapStateToProps= (state) => {
         status: statusSelector(state),
         isStatusLoading: isStatusLoadingSelector(state),
         errorUpdateProfile: errorUpdateProfileSelector(state),
-        toggleProfileUpdateLoading: toggleProfileUpdateLoadingSelector(state)
+        toggleProfileUpdateLoading: toggleProfileUpdateLoadingSelector(state),
+        userId: userIdSelector(state)
     }
 }
 

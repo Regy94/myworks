@@ -24,7 +24,7 @@ const ProfileInfoData = (props) => {
     return (
         !isloadingInfo &&
         <div className={styles.info}>
-            <button onClick={() => props.setEditMode(true)}>Edit</button>
+            {props.isUserProfile && <button onClick={() => props.setEditMode(true)}>Edit</button>}
             <div className={styles.info__about}>About me: {props.profile.aboutMe}</div>
             <div className={styles.info__about}>My skills: {props.profile.lookingForAJobDescription}</div>
             <div className={styles.info__about}>FullName: {props.profile.fullName}</div>

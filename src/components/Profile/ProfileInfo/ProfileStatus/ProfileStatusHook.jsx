@@ -6,6 +6,7 @@ import Loader from '../../../common/loader/loader';
 
 const ProfileStatusHook = (props) => {
 
+
     const [editMode, setEditMode] = useState(false)
     const [status, setStatus] = useState(props.status)
 
@@ -14,7 +15,7 @@ const ProfileStatusHook = (props) => {
     }, [props.status])
 
     const activateEditStatus = () => {
-        setEditMode(true)
+        props.isUserProfile && setEditMode(true)
     }
 
     const deActivateEditStatus = () => {

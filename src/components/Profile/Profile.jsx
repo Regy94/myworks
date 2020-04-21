@@ -16,6 +16,7 @@ const Profile = (props)=> {
                 updateProfile={props.updateProfile}
                 toggleProfileUpdateLoading={props.toggleProfileUpdateLoading}
                 updateProfilePhoto={props.updateProfilePhoto}
+                userId={props.userId}
             />
             <MyPostsContainer/>
         </div>

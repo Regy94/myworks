@@ -11,11 +11,12 @@
     position: relative;
 }
 
+
 .photo__img {
     width: 100%;
 }
 
-.photo:hover .photo__img {
+.photo__user:hover .photo__img {
     opacity: .3;
 }
 

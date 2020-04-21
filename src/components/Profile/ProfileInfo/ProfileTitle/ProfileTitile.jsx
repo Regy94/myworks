@@ -12,12 +12,15 @@ const ProfileTitle = (props) => {
 
     return (
             <div className={styles.title}>
-                <div className={styles.photo}>
+                <div className={`${styles.photo} ${ props.isUserProfile ? styles.photo__user : ""}`}>
                     <img src={props.profile.photos?.large ? props.profile.photos.large : photo} alt='' className={styles.photo__img}/>
-                    <div className={styles.photo__file}>
-                        <input type="file" id="choosePhoto" className={styles.photo__input} onChange={onPhotoChange}/>
-                        <label for="choosePhoto" className={styles.photo__label}>Change photo</label>
-                    </div>
+                    {
+                        props.isUserProfile &&
+                        <div className={styles.photo__file}>
+                            <input type="file" id="choosePhoto" className={styles.photo__input} onChange={onPhotoChange}/>
+                            <label for="choosePhoto" className={styles.photo__label}>Change photo</label>
+                        </div>
+                    }
                 </div>
                 <div className={styles.title__name}>{props.profile.fullName}</div>
                 <div className={styles.title__btn}>
