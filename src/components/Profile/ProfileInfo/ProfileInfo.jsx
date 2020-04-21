@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
                     ? (<div className={styles.info__loader}><Loader /></div>)
                     : (
                         <>
-                            <ProfileTitle {...props}/>
+                            <ProfileTitle {...props} updateProfilePhoto={props.updateProfilePhoto} />
                             <ProfileStatusHook status={props.status} updateStatus={props.updateStatus} isStatusLoading={props.isStatusLoading}/>
                             <ProfileContainerData {...props}/>
                         </>

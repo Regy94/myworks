@@ -7,7 +7,6 @@ import Loader from '../common/loader/loader'
 import Pagination from '../common/Pagination/Pagination';
 
 const Peoples = (props) => {
-    debugger
 
     let peoplesArray = props.peoples.map( p =>
         <People

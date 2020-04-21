@@ -2,7 +2,7 @@ import React from 'react';
 
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { getProfileTC, getStatusTC, updateStatusTC, updateProfileTC } from '../../data/profile-reducer';
+import { getProfileTC, getStatusTC, updateStatusTC, updateProfileTC, updateProfilePhotoTC } from '../../data/profile-reducer';
 import { withRouter, Redirect } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/hoc';
 import { compose } from 'redux';
@@ -37,6 +37,7 @@ class ProfileApiContainer extends React.Component {
             isStatusLoading={this.props.isStatusLoading}
             updateProfile={this.props.updateProfile}
             toggleProfileUpdateLoading={this.props.toggleProfileUpdateLoading}
+            updateProfilePhoto={this.props.updateProfilePhoto}
             />
     }
 }
@@ -67,7 +68,8 @@ export default compose(
                 getProfile: getProfileTC,
                 getStatus: getStatusTC,
                 updateStatus: updateStatusTC,
-                updateProfile: updateProfileTC
+                updateProfile: updateProfileTC,
+                updateProfilePhoto: updateProfilePhotoTC
             })
         )
     (ProfileApiContainer)

@@ -53,6 +53,12 @@ const profileReducer = (state = initialState, action) => {
                 isProfileUpdateLoading: action.isProfileUpdateLoading
             }
 
+        case 'UPDATE-PROFILE-PHOTO':
+            return {
+                ...state,
+                profile: {...state.profile, photos:action.photos}
+            }
+
         default:
             return state;
     }
@@ -71,6 +77,8 @@ export const setStatusAC = (status) => {return {type: 'SET-STATUS', status: stat
 export const toggleStatusLoadingAC = (isStatusLoading) => {return {type: 'TOGGLE-STATUS-LOADING', isStatusLoading: isStatusLoading}}
 
 export const errorUpdateProfileAC = (error) => ({type: 'ERROR_UPDATE_PROFILE', error})
+
+export const updateProfilePhotoAC = (photos) => ({type: 'UPDATE-PROFILE-PHOTO', photos})
 
 export const getProfileTC = (userId) => {
 
@@ -125,6 +133,15 @@ export const updateProfileTC = (profile, setEditMode) => {
                 dispatch(stopSubmit("profileEditForm", {_error: response.data.messages}));
                 dispatch(toggleProfileUpdateLoadingAC(false))
             }
+        })
+    }
+}
+
+export const updateProfilePhotoTC = (photo) => {
+
+    return (dispatch) => {
+        profileApi.updateUserPhoto(photo).then( response => {
+            dispatch(updateProfilePhotoAC(response.data.data.photos))
         })
     }
 }

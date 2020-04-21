@@ -5,7 +5,6 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props)=> {
-
     return(
         <div className={c.profile}>
             <ProfileInfo
@@ -16,6 +15,7 @@ const Profile = (props)=> {
                 isStatusLoading={props.isStatusLoading}
                 updateProfile={props.updateProfile}
                 toggleProfileUpdateLoading={props.toggleProfileUpdateLoading}
+                updateProfilePhoto={props.updateProfilePhoto}
             />
             <MyPostsContainer/>
         </div>
