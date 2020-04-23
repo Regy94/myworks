@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Header from './Header';
+import Header from '.';
+
 import { logOutUserTC } from '../../data/auth-reducer';
 import { loginSelector, isAuthSelector } from '../../data/selectors/auth-selectors';
-
-class HeaderComponentApi extends React.Component{
+class HeaderContainer extends React.Component{
 
     onLogOut = () => {
         this.props.logOutUserTC()
@@ -25,8 +25,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const HeaderContainer= connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     logOutUserTC: logOutUserTC
-})(HeaderComponentApi)
-
-export default HeaderContainer;
+})(HeaderContainer);

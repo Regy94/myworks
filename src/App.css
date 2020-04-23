@@ -1,25 +1,30 @@
 body {
-  background-color: rgba(241, 238, 252, 0.932);
+  background-color: rgba(242, 242, 247, 0.932);
+  font-family: sans-serif;
 }
 
 .container {
   max-width: 960px;
   margin: 0 auto;
+  margin-top: 8px;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 70px minmax(60vh,3fr);
+  gap: 8px;
   grid-template-areas:
     "h h"
     "n c";
 }
 
 .content {
-  background-color: burlywood;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
   grid-area: c;
   padding: 10px;
+  border: 1px solid rgb(230, 230, 230);
 }
 
 .block-center {

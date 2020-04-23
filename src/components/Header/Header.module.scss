@@ -1,0 +1,56 @@
+
+$textColor: rgb(38, 21, 85);
+
+@mixin fontz($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+.header {
+    background-color: rgb(201, 210, 238);
+    color: $textColor;
+    grid-area: h;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  }
+
+.header__logo {
+  width: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "hi ht";
+  align-items: center;
+}
+
+.header__text {
+  grid-area: ht;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.header__img {
+  grid-area: hi;
+  width: 60px;
+}
+
+.imgBlock {
+  display: block;
+  width: 100%;
+}
+
+.header__login {
+  @include fontz(16px, normal);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: $textColor;
+}
+
+.header__userName{
+  @include fontz(16px, normal);
+}

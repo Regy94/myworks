@@ -1,6 +1,8 @@
 import React from 'react';
-import styles from './NavBar.module.css';
 import {NavLink} from 'react-router-dom';
+import {hot} from 'react-hot-loader/root';
+
+import styles from './NavBar.module.scss';
 
 const NavBar = (props) => {
     return (
@@ -24,4 +26,4 @@ const NavBar = (props) => {
     );
 }
 
-export default NavBar;
+export default hot(NavBar);

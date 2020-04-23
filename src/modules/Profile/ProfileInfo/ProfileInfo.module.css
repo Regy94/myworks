@@ -1,0 +1,22 @@
+.info {
+    grid-area: i;
+    position: relative;
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+        "t s"
+        "t i"
+}
+
+.info__loader {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.info__edit{
+    grid-area: e;
+}

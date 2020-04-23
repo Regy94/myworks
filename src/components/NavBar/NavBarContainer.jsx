@@ -1,12 +1,9 @@
 import React from 'react';
-import NavBar from './NavBar';
 import { connect } from 'react-redux';
 
+import NavBar from './NavBar';
 
-class NavBarContainerApi extends React.Component {
-    componentDidMount() {
-
-    }
+class NavBarContainer extends React.Component {
 
     render() {
         return(
@@ -21,6 +18,4 @@ const manStateToProps = (state) => {
     }
 }
 
-const NavBarContainer = connect (manStateToProps)(NavBarContainerApi)
-
-export default NavBarContainer
+export default connect (manStateToProps)(NavBarContainer)

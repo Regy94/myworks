@@ -1,17 +1,23 @@
 import React from 'react';
-import './App.css';
-import Settings from './components/Settings/Settings';
-import News from './components/News/News';
-import {BrowserRouter, Route} from 'react-router-dom';
-import MessagesContainer from './components/Messages/MessagesContainer';
-import PeoplesContainer from './components/Peoples/PeoplesContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
+import {hot} from 'react-hot-loader/root';
+import { compose } from 'redux';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import Settings from './modules/Settings';
+import News from './modules/News';
+import MessagesContainer from './modules/Messages/MessagesContainer';
+import PeoplesContainer from './modules/Peoples/PeoplesContainer';
+import ProfileContainer from './modules/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import NavBarContainer from './components/NavBar/NavBarContainer';
-import Login from './components/Login/login';
-import { connect } from 'react-redux';
+import Login from './components/Login';
+import Loader from './components/common/Loader';
+import NotFound from './components/common/NotFound'
+
 import { ititializeTC } from './data/app-reducer';
-import Loader from './components/common/loader/loader';
+
+import './App.css';
 
 class App extends React.Component {
 
@@ -22,7 +28,7 @@ class App extends React.Component {
   render () {
 
     if (!this.props.isInitializing) {
-      return <Loader/>
+      return <Loader />
     }
 
     return (
@@ -32,12 +38,15 @@ class App extends React.Component {
           <HeaderContainer/>
           <NavBarContainer/>
           <div className="content">
+          <Switch>
             <Route path='/profile/:userId?' render={ () => <ProfileContainer/> }/>
             <Route path='/news' component={News}/>
             <Route path='/messages' render={ () => <MessagesContainer/> } />
             <Route path='/peoples' render={ () => <PeoplesContainer/> } />
             <Route path='/settings' component={Settings}/>
             <Route path='/login' render={ () => <Login/> } />
+            <Route component={NotFound} />
+          </Switch>
           </div>
         </div>
       </div>
@@ -52,4 +61,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{ititialize: ititializeTC})(App);
+export default compose(hot, connect(mapStateToProps,{ititialize: ititializeTC}))(App)

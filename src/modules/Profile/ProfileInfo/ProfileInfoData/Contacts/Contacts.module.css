@@ -1,0 +1,10 @@
+
+.contacts {
+    display: flex;
+}
+
+.contacts__title {
+    margin-left: 10px;
+    padding-right: 5px;
+    font-weight: bold;
+}
