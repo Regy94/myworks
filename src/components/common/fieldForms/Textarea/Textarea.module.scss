@@ -1,0 +1,25 @@
+
+.initialTextarea {
+    border-radius: 4px;
+    outline:none;
+    resize:none;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+.longArea {
+    width: 100%;
+    border: none;
+}
+
+.normalArea {
+
+}
+
+.errorBorder{
+    border: 2px solid red;
+}
+
+.errorText {
+    color: red;
+}

@@ -17,7 +17,7 @@ const MyPosts = (props) => {
 
     return (
         <div className={styles.myposts}>
-            <h3 className={styles.myposts__header}>My Posts</h3>
+            <div className={styles.myposts__header}>My Posts</div>
             <div className={styles.myposts__add}>
                 <AddNewPostForm onSubmit={handleAddPost} />
             </div>

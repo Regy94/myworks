@@ -1,18 +1,18 @@
 .navbar {
-    grid-area: n;
-    background-color: rgb(201, 210, 238);
-    border-radius: 10px;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    justify-items: center;
-    height: 300px;
-    padding: 40px 0;
-    border: 1px solid rgb(230, 230, 230);
-  }
+  grid-area: n;
+  background-color: rgb(201, 210, 238);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  height: 300px;
+  padding: 40px 0;
+  border: 1px solid rgb(230, 230, 230);
+}
 
 .navbar__link {
-    text-decoration: none;
-    color: rgb(38, 21, 85);
+  text-decoration: none;
+  color: rgb(38, 21, 85);
 }
 
 .navbar__link.active {

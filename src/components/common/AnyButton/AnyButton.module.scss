@@ -1,0 +1,23 @@
+
+.btn {
+    background-color: rgb(17, 159, 181);
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: 1px solid rgb(17, 159, 181);
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+
+    &:hover {
+        background-color: rgb(82, 207, 226);
+        border: 1px solid rgb(82, 207, 226);
+        cursor: pointer;
+        transition: background-color .1s linear;
+    }
+
+}
+
+.s {
+    padding: 4px 10px;
+}
+

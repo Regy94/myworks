@@ -1,13 +1,27 @@
 import React from 'react';
 
-import styles from './Contacts.module.css';
+import styles from './Contacts.module.scss';
 
-const Contacts = ({contactTitle, contactValue}) => {
+const Contacts = ({contactType, contactLink}) => {
+
+    const getIcon = (type) => {
+        const icons = {
+            facebook: 'fa fab fa-facebook',
+            vk: 'fa fab fa-vk',
+            github: 'fa fab fa-github',
+            instagram: 'fa fab fa-instagram',
+            twitter: 'fa fab fa-twitter',
+            youtube: 'fa fab fa-youtube'
+        }
+
+        return icons[type]
+    }
+
+    const icon = getIcon(contactType);
 
     return (
         <div className={styles.contacts}>
-            <div className={styles.contacts__title}>{contactTitle}:</div>
-            <div>{contactValue}</div>
+            <a href={`https://${contactLink}`} className={styles.contacts__icon}><i className={icon}></i></a>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {hot} from 'react-hot-loader/root';
+// import {hot} from 'react-hot-loader/root';
 
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo';
@@ -38,4 +38,4 @@ const Profile = (props)=> {
     );
 }
 
-export default hot(Profile);
+export default Profile;

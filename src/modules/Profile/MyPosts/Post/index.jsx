@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Post.module.css'
+import styles from './Post.module.scss'
 
 const Post = (props) => {
 
@@ -10,6 +10,7 @@ const Post = (props) => {
         <div className={styles.post}>
             <div className={styles.post__header}>{header}</div>
             <div className={styles.post__text}>{text}</div>
+            <button className={styles.post__btn}><i className="fa fas fa-trash"></i></button>
         </div>
     );
 }

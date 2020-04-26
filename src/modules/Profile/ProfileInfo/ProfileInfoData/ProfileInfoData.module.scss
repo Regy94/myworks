@@ -1,0 +1,34 @@
+.info{
+    grid-area: i;
+    margin-left: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(201, 201, 201);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover .info__btn {
+        opacity: 1;
+        transition: opacity .1s linear;
+    }
+}
+
+.info__main {
+    order: 0;
+}
+
+.info__btn {
+    transition: opacity .1s linear;
+    opacity: 0;
+    order: 1;
+}
+
+.info__contacts {
+    display: flex;
+    align-items: center;
+}
+
+.info__contactsTitle {
+    color: rgb(122, 122, 122);
+    margin-right: 5px;
+}

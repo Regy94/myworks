@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {hot} from 'react-hot-loader/root';
 
 import MyPosts from '.';
 
@@ -20,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const MyPostsContainer = connect (mapStateToProps, mapDispatchToProps) (MyPosts);
 
-export default MyPostsContainer;
+export default hot (MyPostsContainer);

@@ -4,10 +4,11 @@
 
 .myposts__header {
     text-align: center;
-    color: rgb(253, 0, 0);
-    border-bottom: 1px solid rgb(117, 117, 117);
+    color: rgb(38, 21, 85);
+    padding-bottom: 10px;
 }
 
 .myposts__add {
+    width: 100%;
     display: flex;
 }

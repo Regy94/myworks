@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Loader from '../../../../components/common/Loader';
 
-import styles from './ProfileStatus.module.css'
-
+import styles from './ProfileStatus.module.scss'
 
 const ProfileStatusHook = (props) => {
 

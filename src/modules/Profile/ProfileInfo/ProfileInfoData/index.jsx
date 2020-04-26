@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import 'font-awesome/css/font-awesome.min.css';
 
-import Contacts from './Contacts'
+import Contacts from './Contacts';
+import AnyButton from '../../../../components/common/AnyButton'
 
-import styles from './ProfileInfoData.module.css';
+import styles from './ProfileInfoData.module.scss';
+import InfoString from './InfoString';
 
 const ProfileInfoData = (props) => {
 
@@ -11,6 +14,8 @@ const ProfileInfoData = (props) => {
     const [isloadingInfo, setLoadingInfo] = useState(true)
 
     const { isLoading } = props
+
+    const handleToggleEditMode = () => {setEditMode(true)}
 
     useEffect ( () => {
         if (isLoading === false) {
@@ -21,18 +26,20 @@ const ProfileInfoData = (props) => {
     return (
         !isloadingInfo &&
         <div className={styles.info}>
-            {isUserProfile && <button onClick={() => setEditMode(true)}>Edit</button>}
+            <div className={styles.info__btn}>{isUserProfile && <AnyButton size="s" onClick={handleToggleEditMode}>Edit</AnyButton>}</div>
 
-            <div className={styles.info__about}>About me: {profile.aboutMe}</div>
-            <div className={styles.info__about}>My skills: {profile.lookingForAJobDescription}</div>
-            <div className={styles.info__about}>FullName: {profile.fullName}</div>
+            <div className={styles.info__main}>
+                <InfoString value={profile.aboutMe}>About me</InfoString>
+                <InfoString value={profile.lookingForAJobDescription}>My skills</InfoString>
+                <InfoString value={profile.fullName}>FullName</InfoString>
 
-            <div className={styles.info__contacts}>
-                Contacts: {
-                    Object.keys(profile.contacts).map(key =>
-                        profile.contacts[key] && <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]} />
-                    )
-                }
+                <div className={styles.info__contacts}>
+                    <div className={styles.info__contactsTitle}>Contacts:</div> {
+                        Object.keys(profile.contacts).map(key =>
+                            profile.contacts[key] && <Contacts key={key} contactType={key} contactLink={profile.contacts[key]} />
+                        )
+                    }
+                </div>
             </div>
         </div>
     )

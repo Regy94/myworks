@@ -1,6 +1,7 @@
 import React from 'react';
 
 import photo from '../../../../assets/images/user.png'
+import AnyButton from '../../../../components/common/AnyButton'
 
 import styles from './ProfileTitle.module.scss';
 
@@ -18,6 +19,7 @@ const ProfileTitle = (props) => {
 
     return (
             <div className={styles.title}>
+
                 <div className={`${styles.photo} ${ isUserProfile ? styles.photo__user : ""}`}>
                     <img src={userPhoto} alt="" className={styles.photo__img}/>
                     {
@@ -28,9 +30,11 @@ const ProfileTitle = (props) => {
                         </div>
                     }
                 </div>
+
                 <div className={styles.title__name}>{profile.fullName}</div>
+
                 <div className={styles.title__btn}>
-                    <button>Write message</button>
+                    <AnyButton size="s">Write message</AnyButton>
                 </div>
             </div>
     )

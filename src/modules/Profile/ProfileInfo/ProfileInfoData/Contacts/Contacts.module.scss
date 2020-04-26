@@ -1,0 +1,15 @@
+
+.contacts {
+    padding: 0 5px;
+    cursor: pointer;
+
+    &:hover .contacts__icon{
+        color: rgb(241, 70, 40);
+    }
+}
+
+.contacts__icon{
+    font-size: 25px;
+    text-decoration: none;
+    color: rgb(120, 128, 136)
+}

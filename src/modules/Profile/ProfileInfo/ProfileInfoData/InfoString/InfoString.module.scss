@@ -1,0 +1,19 @@
+
+.string {
+    display: flex;
+    padding: 5px 0;
+
+    &:first-child {
+        padding: 0;
+    }
+}
+
+.string__title {
+    padding-right: 5px;
+    color: rgb(122, 122, 122);
+}
+
+.string__value {
+    font-style: italic;
+    color: rgb(0, 0, 0);
+}

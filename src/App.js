@@ -1,6 +1,4 @@
 import React from 'react';
-import {hot} from 'react-hot-loader/root';
-import { compose } from 'redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -18,6 +16,8 @@ import NotFound from './components/common/NotFound'
 import { ititializeTC } from './data/app-reducer';
 
 import './App.css';
+import { compose } from 'redux';
+// import {hot} from 'react-hot-loader/root';
 
 class App extends React.Component {
 
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(hot, connect(mapStateToProps,{ititialize: ititializeTC}))(App)
+export default connect(mapStateToProps,{ititialize: ititializeTC})(App)

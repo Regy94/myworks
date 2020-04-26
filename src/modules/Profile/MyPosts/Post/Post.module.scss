@@ -1,0 +1,42 @@
+.post {
+    display: grid;
+    grid-template-areas:
+        "h b"
+        "t t";
+    margin: 10px 0;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+
+    &:hover .post__btn{
+        opacity: 1;
+        transition: opacity .2s linear;
+    }
+}
+
+.post__header {
+    grid-area: h;
+    font-weight: bold;
+}
+
+.post__text {
+    grid-area: t;
+    padding-top: 15px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.post__btn {
+    grid-area: b;
+    font-size: 16px;
+    padding: 0;
+    width: 16px;
+    border: none;
+    background-color: transparent;
+    justify-self: end;
+    cursor: pointer;
+    color: rgb(120, 128, 136);
+    opacity: 0;
+    transition: opacity .2s linear;
+}

@@ -5,11 +5,12 @@
 }
 
 .form__item{
-    display: flex;
+    margin-bottom: 10px;
 }
 
-.form__item input {
-    margin-top: 4px;
+.form__check {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .form__remember{
@@ -20,4 +21,8 @@
     font-size: 14px;
     color: red;
     font-weight: bold;
+}
+
+.title {
+    text-align: center;
 }

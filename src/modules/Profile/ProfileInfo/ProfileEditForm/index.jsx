@@ -1,7 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import styles from './ProfileEditForm.module.css'
+import styles from './ProfileEditForm.module.scss'
+import AnyButton from '../../../../components/common/AnyButton';
+import Input from '../../../../components/common/fieldForms/Input';
+
+import { required } from '../../../../helpers/validators';
 
 const ProfileEditForm = (props) => {
 
@@ -10,25 +14,20 @@ const ProfileEditForm = (props) => {
     return (
         <div className={styles.form}>
             <form onSubmit={props.handleSubmit}>
+
                 {error && <div className={styles.form__error}>{error}</div>}
-                <button>Save</button>
-                <div className={styles.form__about}>About me:
-                    <Field name="aboutMe" component="input"/>
-                </div>
-                <div className={styles.form__about}>My skills:
-                    <Field name="lookingForAJobDescription" component="input"/>
-                </div>
-                <div className={styles.form__about}>Fullname:
-                    <Field name="fullName" component="input"/>
-                </div>
-                <div>
-                    Contacts: {
+
+                <AnyButton size="s">Save</AnyButton>
+
+                <Field name="aboutMe" labelText="About me:" validate={[required]} component={Input}/>
+                <Field name="lookingForAJobDescription" labelText="My skills:" validate={[required]} component={Input}/>
+                <Field name="fullName" labelText="Fullname:" validate={[required]} component={Input}/>
+
+                <div className={styles.form__contacts}>
+                    <span>Contacts:</span> {
                         Object.keys(profile.contacts).map( key => {
                             return (
-                                <div className={styles.contacts} key={key}>
-                                <div className={styles.contacts__key}>{key}:</div>
-                                    <Field className={styles.contacts__name} name={`contacts.${key}`} component="input"/>
-                                </div>
+                                <Field className={styles.contacts__name} labelText={key}  name={`contacts.${key}`} component={Input}/>
                             )
                         })
                     }
