@@ -1,0 +1,28 @@
+
+.navLink {
+    display: flex;
+    text-decoration: none;
+    color: rgb(38, 21, 85);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: rgb(183, 199, 248);
+
+        &:first-child{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    }
+}
+
+.navLink.active {
+    color: white;
+    background-color: rgba(121, 152, 248, 0.637);
+
+    &:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}
