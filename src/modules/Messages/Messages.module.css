@@ -1,10 +1,10 @@
 .messages {
-    padding: 20px;
+    padding: 30px;
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 10px;
 }
 
 .newMessage {
-    display: flex;
+    margin-bottom: 20px;
 }

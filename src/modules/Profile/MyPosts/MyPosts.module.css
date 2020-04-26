@@ -6,6 +6,8 @@
     text-align: center;
     color: rgb(38, 21, 85);
     padding-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .myposts__add {

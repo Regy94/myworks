@@ -3,5 +3,5 @@
     grid-template-columns: 190px 550px;
     grid-template-areas:
         "i i"
-        ". p";
+        "p p";
 }

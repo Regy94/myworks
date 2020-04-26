@@ -3,7 +3,7 @@ import { Field, reduxForm} from 'redux-form';
 
 import Loader from '../common/Loader'
 import Input from '../common/fieldForms/Input';
-import AnyButton from '../common/AnyButton';
+import Button from '../common/Button';
 
 import { maxLength, required } from '../../helpers/validators';
 
@@ -52,7 +52,7 @@ const LoginForm = (props) => {
                             <Field component={"input"} type={"checkbox"} name="remember"/>
                         </div>
 
-                        <AnyButton>Login</AnyButton>
+                        <Button>Login</Button>
 
                     </form>
                 )

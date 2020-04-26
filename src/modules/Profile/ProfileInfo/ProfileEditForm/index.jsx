@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import styles from './ProfileEditForm.module.scss'
-import AnyButton from '../../../../components/common/AnyButton';
+import Button from '../../../../components/common/Button';
 import Input from '../../../../components/common/fieldForms/Input';
 
 import { required } from '../../../../helpers/validators';
@@ -17,7 +17,7 @@ const ProfileEditForm = (props) => {
 
                 {error && <div className={styles.form__error}>{error}</div>}
 
-                <AnyButton size="s">Save</AnyButton>
+                <Button size="s">Save</Button>
 
                 <Field name="aboutMe" labelText="About me:" validate={[required]} component={Input}/>
                 <Field name="lookingForAJobDescription" labelText="My skills:" validate={[required]} component={Input}/>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './AnyButton.module.scss'
+import styles from './Button.module.scss'
 
-const AnyButton = (props) => {
+const Button = (props) => {
 
     const {children, onClick, size} = props;
 
@@ -13,4 +13,4 @@ const AnyButton = (props) => {
     )
 }
 
-export default AnyButton
+export default Button

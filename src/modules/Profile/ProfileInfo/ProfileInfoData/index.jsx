@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
 import Contacts from './Contacts';
-import AnyButton from '../../../../components/common/AnyButton'
+import Button from '../../../../components/common/Button'
 
 import styles from './ProfileInfoData.module.scss';
 import InfoString from './InfoString';
@@ -26,7 +26,7 @@ const ProfileInfoData = (props) => {
     return (
         !isloadingInfo &&
         <div className={styles.info}>
-            <div className={styles.info__btn}>{isUserProfile && <AnyButton size="s" onClick={handleToggleEditMode}>Edit</AnyButton>}</div>
+            <div className={styles.info__btn}>{isUserProfile && <Button size="s" onClick={handleToggleEditMode}>Edit</Button>}</div>
 
             <div className={styles.info__main}>
                 <InfoString value={profile.aboutMe}>About me</InfoString>

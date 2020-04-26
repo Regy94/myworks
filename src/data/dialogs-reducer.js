@@ -1,10 +1,10 @@
 
 const initialState={
     dialogs: [
-        { id: 1 , name: 'Nikita', text: 'Hi, how are you?', date: '18.02.2020'},
-        { id: 2 , name: 'Sergey', text: 'Whaaaaat?', date: '15.02.2020'},
-        { id: 3 , name: 'Sam', text: 'yes', date: '10.02.2020'},
-        { id: 4 , name: 'Tom', text: 'goodluck!', date: '13.02.2020'}
+        { id: 1 , name: 'Nikita', text: 'Hi, how are you?', date: '18.02.2020', isNewMessages:false},
+        { id: 2 , name: 'Sergey', text: 'Whaaaaat?', date: '15.02.2020', isNewMessages:true},
+        { id: 3 , name: 'Sam', text: 'yes', date: '10.02.2020', isNewMessages:false},
+        { id: 4 , name: 'Tom', text: 'goodluck!', date: '13.02.2020', isNewMessages:false}
     ]
 };
 

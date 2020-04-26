@@ -1,24 +1,24 @@
 import React from 'react';
 
-import TextareaForm from '../../../components/common/fieldForms/TextareaForm';
+import Textarea from '../../../components/common/fieldForms/Textarea';
+import Button from '../../../components/common/Button/index'
 
 import { Field, reduxForm } from 'redux-form';
-import { maxLength } from '../../../helpers/validators';
 
 import styles from './MessageForm.module.css'
-
-const messageLength = maxLength(10);
 
 const MessageForm = (props) => {
 
     return (
-        <div>
-            <form onSubmit={props.handleSubmit} className={styles.form}>
-                <Field component={TextareaForm} placeholder="Enter message..." name="message" validate={[messageLength]}/>
-                <button>Sent</button>
-            </form>
-        </div>
-    )
+        <form onSubmit={props.handleSubmit} className={styles.form}>
+            <div className={styles.form__field}>
+                <Field width="long" component={Textarea} placeholder="Enter message..." name="message"/>
+            </div>
+            <div className={styles.form__btn} >
+                <Button>Sent</Button>
+            </div>
+        </form>
+)
 }
 
 export default reduxForm({form: 'AddMessageForm'})(MessageForm)

@@ -1,17 +1,31 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
-import styles from './Member.module.css';
+import styles from './Member.module.scss';
 
 const Member = (props) => {
 
-    const { name,message,date } = props;
+    const cx = classNames.bind(styles);
+
+    const { name, message, date, isNewMessages } = props;
+
+    const messageBodyClassName = cx (
+        'message__body', {
+            newMessage: isNewMessages
+        }
+    );
 
     return (
-        <div className={styles.member}>
-            <div className={styles.member__name}>{name}</div>
-            <div className={styles.member__message}>
-                <div className={styles.member__text}>{message}</div>
-                <div className={styles.member__date}>{date}</div>
+        <div className={styles.message}>
+            <div className={styles.message__user}>{name}</div>
+            <div className={messageBodyClassName}>
+                <div className={styles.message__text}>{message}</div>
+                <div className={styles.message__other}>
+                    <button className={styles.message__del}>
+                        <i className="fa fas fa-times"></i>
+                    </button>
+                    <div className={styles.message__date}>{date}</div>
+                </div>
             </div>
         </div>
     );

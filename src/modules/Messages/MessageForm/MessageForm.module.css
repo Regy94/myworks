@@ -1,4 +1,14 @@
 .form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.form__field {
+    border-bottom: 1px solid rgb(201, 201, 201);
+    margin-bottom: 10px;
+}
+
+.form__btn {
+    align-self: flex-end;
 }

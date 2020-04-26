@@ -1,7 +1,7 @@
 import React from 'react';
 
 import photo from '../../../../assets/images/user.png'
-import AnyButton from '../../../../components/common/AnyButton'
+import Button from '../../../../components/common/Button'
 
 import styles from './ProfileTitle.module.scss';
 
@@ -34,7 +34,7 @@ const ProfileTitle = (props) => {
                 <div className={styles.title__name}>{profile.fullName}</div>
 
                 <div className={styles.title__btn}>
-                    <AnyButton size="s">Write message</AnyButton>
+                    <Button size="s">Write message</Button>
                 </div>
             </div>
     )

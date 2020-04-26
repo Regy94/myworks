@@ -1,4 +1,5 @@
 import React from 'react';
+import {hot} from 'react-hot-loader/root';
 
 import Member from './Member'
 import MessageForm from './MessageForm';
@@ -9,7 +10,9 @@ const Messages = (props) => {
 
     const { dialogs, addNewMessage } = props
 
-    const dialogsArray = dialogs.map(({ name, text, date, id }) => <Member name={name} message={text} date={date} key={id} /> );
+    const dialogsArray = dialogs.map(
+        ({ isNewMessages, name, text, date, id }) => <Member isNewMessages={isNewMessages} name={name} message={text} date={date} key={id} />
+    );
 
     const handleAddNewMessage = (data) => {
         addNewMessage(data.message)
@@ -26,4 +29,4 @@ const Messages = (props) => {
     );
 }
 
-export default Messages;
+export default hot(Messages);

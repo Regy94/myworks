@@ -6,7 +6,8 @@
     grid-template-rows: 70px 1fr;
     grid-template-areas:
         "t s"
-        "t i"
+        "t i";
+    margin-bottom: 50px;
 }
 
 .info__loader {
