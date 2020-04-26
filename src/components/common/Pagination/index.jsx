@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import styles from './Pagination.module.css'
+import Button from '../Button';
 
 const Pagination = ({
     totalItemCount,
@@ -34,7 +35,7 @@ const Pagination = ({
 
     return(
         <div className={styles.pages}>
-            {portionNumber > 1 && <button onClick={handlePrevPage}>Prev</button>}
+            {portionNumber > 1 && <Button size='xs' onClick={handlePrevPage}>Prev</Button>}
 
             {pages
                 .filter( page => page <= rightPortionNumber && page >= leftPortionPageNumber)
@@ -54,7 +55,7 @@ const Pagination = ({
                 ... {lastPage}
             </div>
 
-            {lastPortionNumber>portionNumber && <button onClick={handleNextPage}>Next</button>}
+            {lastPortionNumber>portionNumber && <Button size='xs' onClick={handleNextPage}>Next</Button>}
         </div>
     )
 }

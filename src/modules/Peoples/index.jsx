@@ -1,4 +1,5 @@
 import React from 'react';
+import {hot} from 'react-hot-loader/root';
 
 import People from './People/';
 import Loader from '../../components/common/Loader'
@@ -52,14 +53,17 @@ const Peoples = (props) => {
 
             <div className={styles.peoples__arr}>{peoplesArray}</div>
 
-            <Pagination
+            { !isLoading &&
+                <Pagination
                 currentPage={currentPage}
                 totalItemCount={usersTotalCount}
                 pageSize={pageSize}
                 handleChangePage={handleChangePage}
-            />
+                />
+            }
+
         </div>
     )
 }
 
-export default Peoples;
+export default hot (Peoples);
