@@ -16,7 +16,7 @@ import NotFound from './components/common/NotFound'
 import { ititializeTC } from './data/app-reducer';
 
 import './App.css';
-import { compose } from 'redux';
+// import { compose } from 'redux';
 // import {hot} from 'react-hot-loader/root';
 
 class App extends React.Component {

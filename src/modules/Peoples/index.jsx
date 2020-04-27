@@ -1,5 +1,6 @@
 import React from 'react';
 import {hot} from 'react-hot-loader/root';
+import classNames from 'classnames/bind';
 
 import People from './People/';
 import Loader from '../../components/common/Loader'
@@ -43,6 +44,14 @@ const Peoples = (props) => {
         )
     });
 
+    const cx = classNames.bind(styles);
+
+    const peoplesArrClassName = cx (
+        'peoples__arr', {
+            disabledPeoples: isLoading
+        }
+    );
+
     return (
         <div className={styles.peoples}>
             { isLoading && (
@@ -51,7 +60,7 @@ const Peoples = (props) => {
                 </div>
             )}
 
-            <div className={styles.peoples__arr}>{peoplesArray}</div>
+            <div className={peoplesArrClassName}>{peoplesArray}</div>
 
             { !isLoading &&
                 <Pagination

@@ -38,6 +38,10 @@ $textColor: rgb(38, 21, 85);
   width: 60px;
 }
 
+.photo__img {
+  width: 40px;
+}
+
 .imgBlock {
   display: block;
   width: 100%;
@@ -49,6 +53,13 @@ $textColor: rgb(38, 21, 85);
   border: none;
   background: transparent;
   color: $textColor;
+  font-weight: bold;
+  transition: color .2s linear;
+
+  &:hover {
+    transition: .1s linear;
+    color: rgb(255, 255, 255);
+  }
 }
 
 .header__userName{

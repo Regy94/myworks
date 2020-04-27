@@ -23,7 +23,9 @@ const Header = (props) => {
             </div>
             <div>
                 {isAuth ? (
-                    <div className={styles.header__userName}>{login}</div>
+                    <div className={styles.header__userName}>
+                        {login}
+                    </div>
                 ) : (
                     <NavLink className={styles.header__login} to={'/login'}>Login</NavLink>
                 )}

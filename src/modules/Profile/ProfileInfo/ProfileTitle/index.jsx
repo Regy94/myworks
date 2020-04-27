@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 import photo from '../../../../assets/images/user.png'
 import Button from '../../../../components/common/Button'
@@ -17,10 +18,18 @@ const ProfileTitle = (props) => {
 
     const userPhoto = profile.photos?.large ? profile.photos.large : photo;
 
+    const cx = classNames.bind(styles);
+
+    const photoClassName = cx (
+        'photo', {
+            photo__user: isUserProfile
+        }
+    );
+
     return (
             <div className={styles.title}>
 
-                <div className={`${styles.photo} ${ isUserProfile ? styles.photo__user : ""}`}>
+                <div className={photoClassName}>
                     <img src={userPhoto} alt="" className={styles.photo__img}/>
                     {
                         isUserProfile &&
@@ -33,9 +42,11 @@ const ProfileTitle = (props) => {
 
                 <div className={styles.title__name}>{profile.fullName}</div>
 
-                <div className={styles.title__btn}>
-                    <Button size="s">Write message</Button>
-                </div>
+                {!isUserProfile &&
+                    <div className={styles.title__btn}>
+                        <Button disabled={true} size="s">Write message</Button>
+                    </div>
+                }
             </div>
     )
 }

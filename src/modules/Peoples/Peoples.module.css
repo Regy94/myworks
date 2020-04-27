@@ -6,6 +6,11 @@
     margin-bottom: 20px;
 }
 
+.disabledPeoples {
+    opacity: .5;
+    pointer-events: none;
+}
+
 .peoples {
     position: relative;
     height: 100%;
