@@ -32,13 +32,14 @@ class App extends React.Component {
     }
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={"/"}>
       <div className="container">
         <div className="wrapper">
           <HeaderContainer/>
           <NavBarContainer/>
           <div className="content">
           <Switch>
+            <Route exact path="/"  component={ () => <PeoplesContainer/> }/> />
             <Route path='/profile/:userId?' render={ () => <ProfileContainer/> }/>
             <Route path='/news' component={News}/>
             <Route path='/messages' render={ () => <MessagesContainer/> } />

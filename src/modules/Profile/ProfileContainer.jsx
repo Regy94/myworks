@@ -20,17 +20,18 @@ import { userIdSelector } from '../../data/selectors/auth-selectors';
 class ProfileApiContainer extends React.Component {
 
     getUser() {
-        this.props.getProfile(this.props.match.params.userId);
-        this.props.getStatus(this.props.match.params.userId)
+        const userId = this.props.match.params.userId;
+        this.props.getProfile(userId);
+        this.props.getStatus(userId);
     }
 
     componentDidMount() {
-        this.getUser()
+        this.getUser();
     }
 
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.match.params.userId!==this.props.match.params.userId) {
-            this.getUser()
+            this.getUser();
         }
     }
 
