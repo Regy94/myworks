@@ -52,6 +52,8 @@ const Peoples = (props) => {
         }
     );
 
+    const isHidePagination = peoples.length === 0
+
     return (
         <div className={styles.peoples}>
             { isLoading && (
@@ -62,7 +64,7 @@ const Peoples = (props) => {
 
             <div className={peoplesArrClassName}>{peoplesArray}</div>
 
-            { !isLoading &&
+            { !isHidePagination &&
                 <Pagination
                 currentPage={currentPage}
                 totalItemCount={usersTotalCount}

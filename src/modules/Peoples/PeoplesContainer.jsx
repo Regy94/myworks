@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Peoples from '.';
 
-import {disableBtnAC, followTC, unfollowTC, getUsers, changePageActionCreator} from '../../data/peoples-reducer';
+import {disableBtnAC, followTC, unfollowTC, getUsers, changePageActionCreator, unmountPageAC} from '../../data/peoples-reducer';
 import {
     peoplesSelector,
     usersTotalCountSelector,
@@ -17,6 +17,10 @@ class PeoplesApiComponent extends React.Component {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
+    }
+
+    componentWillUnmount() {
+        this.props.unmountPage();
     }
 
     handleChangePage = (page) => {
@@ -46,7 +50,8 @@ const PeoplesContainer = connect (mapStateToProps, {
     unfollow: unfollowTC,
     getUsers: getUsers,
     disableBtn: disableBtnAC,
-    changePage: changePageActionCreator
+    changePage: changePageActionCreator,
+    unmountPage: unmountPageAC
 })
     (PeoplesApiComponent);
 

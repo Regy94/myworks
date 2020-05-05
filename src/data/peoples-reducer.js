@@ -65,6 +65,12 @@ const peoplesReducer = (state = initialState, action) => {
                     :state.disableIDs.filter(id => id !== action.id)
             }
 
+        case 'UNMOUNT-PAGE':
+            return {
+                ...state,
+                currentPage: 1
+            }
+
         default: return state;
     };
 };
@@ -78,6 +84,8 @@ export const setUsersActionCreator = (users) => {return {type: 'SET-USERS', user
 export const changePageActionCreator = (page) => { return {type: 'CHANGE-PAGE', page: page}}
 
 export const setTotalUsersCountAC = (usersCount) => {return {type: 'SET-USERS-COUNT', usersCount: usersCount }}
+
+export const unmountPageAC = () => ({type: 'UNMOUNT-PAGE'})
 
 export const toggleLoadingAC = (isLoading) => {
     return {type: 'TOGGLE-IS-LOADING', isLoading: isLoading}
