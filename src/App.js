@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render () {
 
-    if (!this.props.isInitializing) {
+    if (!this.props.isInitializing)  {
       return <Loader />
     }
 

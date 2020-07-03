@@ -30,7 +30,6 @@ const ProfileInfoData = (props) => {
 
             <div className={styles.info__main}>
                 <InfoString value={profile.aboutMe}>About me</InfoString>
-                <InfoString value={profile.lookingForAJobDescription}>My skills</InfoString>
                 <InfoString value={profile.fullName}>FullName</InfoString>
 
                 <div className={styles.info__contacts}>

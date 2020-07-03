@@ -1,0 +1,80 @@
+{
+  "profile": [
+    {
+      "id": 1,
+      "aboutMe": "hi, i'am Bruno!",
+      "fullName": "bruno",
+      "contacts": {
+        "facebook": "facebook.com"
+      },
+      "photos": {
+        "large": "https://www.oceanairtravels.com/blog/wp-content/uploads/2018/11/NATURE-TRAVELER.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "aboutMe": "g",
+      "fullName": "refde",
+      "contacts": {
+        "facebook": "facebook.com"
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "text": "some text",
+      "profileId": 1
+    },
+    {
+      "id": 2,
+      "text": "hello all!",
+      "profileId": 1
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "Nikita",
+      "text": "Hi, how are you?",
+      "date": "18.02.2020",
+      "isNewMessages": false,
+      "profileId": 2
+    },
+    {
+      "id": 2,
+      "name": "Sergey",
+      "text": "Whaaaaat?",
+      "date": "15.02.2020",
+      "isNewMessages": true,
+      "profileId": 1
+    },
+    {
+      "text": "tryrtyrty",
+      "profileId": 2,
+      "id": 4
+    },
+    {
+      "text": "dsafdsfdddddddddddddddddddd",
+      "profileId": 2,
+      "id": 6
+    },
+    {
+      "text": "gf",
+      "profileId": 1,
+      "id": 7
+    }
+  ],
+  "status": [
+    {
+      "text": "hi all",
+      "profileId": 1,
+      "id": 1
+    },
+    {
+      "text": "reno df",
+      "profileId": 2,
+      "id": 2
+    }
+  ]
+}

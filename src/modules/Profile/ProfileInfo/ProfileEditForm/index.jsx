@@ -20,7 +20,6 @@ const ProfileEditForm = (props) => {
                 <Button size="s">Save</Button>
 
                 <Field name="aboutMe" labelText="About me:" validate={[required]} component={Input}/>
-                <Field name="lookingForAJobDescription" labelText="My skills:" validate={[required]} component={Input}/>
                 <Field name="fullName" labelText="Fullname:" validate={[required]} component={Input}/>
 
                 <div className={styles.form__contacts}>

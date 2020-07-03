@@ -12,7 +12,7 @@ const MessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={styles.form}>
             <div className={styles.form__field}>
-                <Field width="long" component={Textarea} placeholder="Enter message..." name="message"/>
+                <Field width="long" component={Textarea} placeholder="Enter message..." name="text"/>
             </div>
             <div className={styles.form__btn} >
                 <Button>Sent</Button>

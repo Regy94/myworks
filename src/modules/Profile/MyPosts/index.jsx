@@ -4,10 +4,15 @@ import AddNewPostForm from './AddNewPostForm'
 import Post from './Post'
 
 import styles from './MyPosts.module.css'
+import { useEffect } from 'react';
 
 const MyPosts = (props) => {
 
-    const {posts, addPost} = props;
+    const {posts, userId, addPost, getPosts} = props;
+
+    useEffect(() => {
+        getPosts(userId)
+    }, [])
 
     const postsArray = posts.map( ({header, text, id}) => <Post header={header} text={text} key={id} />)
 

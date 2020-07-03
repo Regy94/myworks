@@ -7,7 +7,7 @@ const Member = (props) => {
 
     const cx = classNames.bind(styles);
 
-    const { name, message, date, isNewMessages } = props;
+    const { name, message, date, isNewMessages, id, deleteMessageRequest } = props;
 
     const messageBodyClassName = cx (
         'message__body', {
@@ -15,13 +15,17 @@ const Member = (props) => {
         }
     );
 
+    const handleDeleteMessage = () => {
+        deleteMessageRequest(id)
+    }
+
     return (
         <div className={styles.message}>
             <div className={styles.message__user}>{name}</div>
             <div className={messageBodyClassName}>
                 <div className={styles.message__text}>{message}</div>
                 <div className={styles.message__other}>
-                    <button className={styles.message__del}>
+                    <button className={styles.message__del} onClick={handleDeleteMessage} >
                         <i className="fa fas fa-times"></i>
                     </button>
                     <div className={styles.message__date}>{date}</div>

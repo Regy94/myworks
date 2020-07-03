@@ -33,7 +33,7 @@ const Profile = (props)=> {
                 updateProfilePhoto={updateProfilePhoto}
                 userId={userId}
             />
-            <MyPostsContainer/>
+            <MyPostsContainer userId={userId}/>
         </div>
     );
 }

@@ -1,10 +1,11 @@
 import { getMeInformationTC } from "./auth-reducer"
 
+
 const initialState = {
     isInitializing: false
 }
 
-const appReducer = (state=initialState, action) => {
+const appReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'INITIALIZING':
@@ -15,16 +16,16 @@ const appReducer = (state=initialState, action) => {
 
         default:
             return state
-    }
+    } 
 }
 
-export const initializingAC = () => {return{type: 'INITIALIZING'}}
+export const initializingAC = () => { return{ type: 'INITIALIZING' } }
 
 export const ititializeTC = () => {
 
     return (dispatch) => {
         dispatch(getMeInformationTC()).then( () => {
-            dispatch(initializingAC())
+                dispatch(initializingAC())
             }
         )
     }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Peoples from '.';
 
-import {disableBtnAC, followTC, unfollowTC, getUsers, changePageActionCreator, unmountPageAC} from '../../data/peoples-reducer';
+// import {disableBtnAC, followTC, unfollowTC, getUsers, changePageActionCreator, unmountPageAC} from '../../data/peoples-reducer';
 import {
     peoplesSelector,
     usersTotalCountSelector,
@@ -12,16 +12,18 @@ import {
     isLoadingSelector,
     disableIDsSelector
 } from '../../data/selectors/peoples-selector';
+import { fetchUsersRequest } from './actions';
 
 class PeoplesApiComponent extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        // this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.fetchUsers()
     }
 
-    componentWillUnmount() {
-        this.props.unmountPage();
-    }
+    // componentWillUnmount() {
+    //     this.props.unmountPage();
+    // }
 
     handleChangePage = (page) => {
         this.props.getUsers(page, this.props.pageSize);
@@ -46,12 +48,7 @@ const mapStateToProps = (state) => {
 };
 
 const PeoplesContainer = connect (mapStateToProps, {
-    follow: followTC,
-    unfollow: unfollowTC,
-    getUsers: getUsers,
-    disableBtn: disableBtnAC,
-    changePage: changePageActionCreator,
-    unmountPage: unmountPageAC
+    fetchUsers: fetchUsersRequest
 })
     (PeoplesApiComponent);
 

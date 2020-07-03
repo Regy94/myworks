@@ -1,11 +1,13 @@
 import { authApi } from "../api/api";
+import { initializingAC } from "./app-reducer";
 
 const initialState = {
-    login:null,
+    login:'',
     id:null,
     isLoading:false,
     isAuth:false,
-    errorMessages: []
+    errorMessages: [],
+    accessToken: ''
 }
 
 const authReducer = (state=initialState, action) => {
@@ -34,7 +36,7 @@ const authReducer = (state=initialState, action) => {
                 ...state,
                 login:null,
                 id:null,
-                isAuth: false
+                isAuth: false,
             }
 
         case 'TOGGLE-IS-LOADING':
@@ -43,12 +45,21 @@ const authReducer = (state=initialState, action) => {
                 isLoading: action.isLoading
             }
 
+        case 'SET-LOGIN-INFO':
+            return {
+                ...state,
+                accessToken: action.loginInfo.access_token,
+                id: action.loginInfo.userId,
+                login: action.loginInfo.userName,
+                isAuth: true
+            }
+
         default:
             return state;
     }
 }
 
-export const setUserLoginAC = ({id, login}) => ({type:'SET-USER-LOGIN', data: {id, login}})
+export const setUserLoginAC = ({userId, userName}) => ({type:'SET-USER-LOGIN', data: {id: userId, login: userName}})
 
 export const authUserAC = ({email,pass,remember}) => { return{type: 'AUTH-USER', data: {email,pass,remember}}}
 
@@ -58,45 +69,55 @@ export const logOutAC = () => { return{ type: 'LOG-OUT' }}
 
 export const toggleLoadingAC = (isLoading) => {return {type: 'TOGGLE-IS-LOADING', isLoading: isLoading}}
 
+export const setLogininfoAC = (loginInfo) => ({type: 'SET-LOGIN-INFO', loginInfo})
+
 export const getMeInformationTC = () => {
 
-    return (dispatch) => {
-        return authApi.loginUser().then(data => {
-            if (data.resultCode === 0) {
-                const {id,login}=data.data;
-                dispatch(setUserLoginAC({id,login}))
-                }
+    return async (dispatch) => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        if (user && user.access_token) {
+            try {
+                return await authApi.loginUser().then( response => {
+                        const {userId, userName}=response;
+                        dispatch(setUserLoginAC({userId, userName}))
+                    }
+                )
+            } catch(err) {
+                return Promise.resolve()
             }
-        )
+        }
+        return Promise.resolve()
     }
 }
 
-export const authUserTC = ({email,pass,remember}) => {
+export const authUserTC = ({email,pass}) => {
 
-    return (dispatch) => {
-        dispatch(toggleLoadingAC(true))
-        authApi.loginForm({email,pass,remember}).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(getMeInformationTC())
-                dispatch(toggleLoadingAC(false))
-            }
-            else {
-                dispatch(errorAuthAC(data.messages))
-                dispatch(toggleLoadingAC(false))
-            }
-        })
+    return async (dispatch) => {
+        try {
+            const { data } = await authApi.loginForm({email,pass});
+            localStorage.setItem("user", JSON.stringify(data));
+            dispatch(setLogininfoAC(data))
+        } catch (err) {
+            dispatch(errorAuthAC(err.response.data.message))
+        }
     }
 }
 
 export const logOutUserTC = () => {
-    return (dispatch) => {
-        dispatch(toggleLoadingAC(true))
-        authApi.logOutUser().then(data => {
-            if (data.resultCode === 0) {
-                dispatch(logOutAC())
-                dispatch(toggleLoadingAC(false))
+    return async (dispatch) => {      
+        try {
+            dispatch(toggleLoadingAC(true))
+            const {data} = await authApi.logOutUser()
+            if (data) {
+                await dispatch(logOutAC())
+                localStorage.removeItem("user");
+                await dispatch(initializingAC())
             }
-        })
+        } catch (error) {
+            console.error(error)
+        } finally {
+            dispatch(toggleLoadingAC(false))
+        }
     }
 }
 

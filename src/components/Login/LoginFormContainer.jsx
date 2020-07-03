@@ -5,8 +5,7 @@ import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
 
 import { authUserTC, getMeInformationTC } from '../../data/auth-reducer';
-import { errorMessagesSelector, isAuthSelector, userIdSelector } from '../../data/selectors/auth-selectors';
-import { isLoadingSelector } from '../../data/selectors/auth-selectors';
+import { errorMessagesSelector, isAuthSelector, userIdSelector, isLoadingSelector } from '../../data/selectors/auth-selectors';
 
 class LoginFormContainer extends React.Component {
 

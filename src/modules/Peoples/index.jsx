@@ -27,13 +27,13 @@ const Peoples = (props) => {
 
     const peoplesArray = peoples.map(people => {
 
-        const currentUserPhoto = people.photos.small !== null ? people.photos.small : userPhoto;
+        const currentUserPhoto =people?.photos?.large || userPhoto;
 
         return (
             <People
                 id={people.id}
                 photo={currentUserPhoto}
-                fullname={people.name}
+                fullname={people.fullName}
                 followed={people.followed}
                 disableBtn={disableBtn}
                 disableIDs={disableIDs}
@@ -52,7 +52,7 @@ const Peoples = (props) => {
         }
     );
 
-    const isHidePagination = peoples.length === 0
+    const isHidePagination = peoples.length === 0 || usersTotalCount<=pageSize
 
     return (
         <div className={styles.peoples}>
